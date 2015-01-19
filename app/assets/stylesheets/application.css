@@ -10,8 +10,6 @@
  *
  *= require_self
  *= require_tree .
- *= require jquery-ui/core
- *= require jquery-ui/tabs
  */
 
 
@@ -58,7 +56,7 @@ div#sidebar {
   height: auto;
   margin: 20px 0px;
   padding: 20px;
-  background-color: #499;
+  background-color: #00b2ee;
 }
 
 div#footer {
