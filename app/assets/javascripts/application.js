@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui/core
 //= require jquery-ui/widget
+//= require jquery-ui/accordion
 //= require jquery-ui/effect-fade
 //= require jquery-ui/tabs
 //= require jquery_ujs
@@ -33,6 +34,10 @@ $(function(){
     $(".treemenu .lv1btn,.treemenu .lv1body").click(function() {
         $(this).next().slideToggle(100);
     });
+});
+
+$(function() {
+  $('#accordion').accordion({header: "h3"});
 });
 
 $(function() {
@@ -58,10 +63,10 @@ $(function() {
     }).trigger('change');
 });
 
-$(function(){
-  $('.detail').addClass('invisible');
-  $('select').change(function() {
-    $('.detail').addClass('invisible');
-    $('#' + $("#detail_date option:selected").attr("class")).removeClass("invisible");
-  });
-});
+// $(function(){
+//   $('.detail').addClass('invisible');
+//   $('select').change(function() {
+//     $('.detail').addClass('invisible');
+//     $('#' + $("#detail_date option:selected").attr("class")).removeClass("invisible");
+//   });
+// });

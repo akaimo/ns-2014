@@ -8,16 +8,7 @@
 </tr>
 </table>
 
-<% option = [] %>
-<% count = 0 %>
-<% @details.each do |detail| %>
-<% if detail.start >= Date.today %>
-  <% option.push([detail.start.strftime('%Y年%m月%d日') + " ~ " + detail.finish.strftime('%m月%d日'), count, {class: count}]) %>
-  <% count = count + 1 %>
-<% end %>
-<% end %>
-<%= select :detail, :date, option, :prompt => "日付を選択" %>
-
+<div id="accordion">
 <% count = 0 %>
 <% @details.each do |detail| %>
 <% if detail.start >= Date.today %>
@@ -35,8 +26,8 @@
     <% end %>
   <% end %>
 <% end %>
-<div id=<%= count %> class="detail">
 <h3><%= detail.start.strftime('%Y年%m月%d日') %> ~ <%= detail.finish.strftime('%m月%d日') %>のツアー</h3>
+<div>
 <table class="attr">
 <tr>
   <th>金額</th>
@@ -66,25 +57,22 @@
 <% count = count + 1 %>
 <% end %>
 <% end %>
+</div>
 
 <div class="review">
   <h2>レビュー</h2>
 
+  <% t = false %>
   <% @review.each do |review| %>
     <% if @current_member %>
       <% if review.member_id == @current_member.id %>
-        <% t = 1 %>
-      <% else %>
-        <% t = 0 %>
+        <% t = true %>
+        <%= link_to "レビューを編集する", [:edit, @tour, review] %>
       <% end %>
-    <% else %>
-      <% t = 0 %>
     <% end %>
-    <% if t == 1 %>
-    <%= link_to "レビューを編集する", [:edit, @tour, review] %>
-    <% else %>
-    <%= link_to "レビューをする", [:new, @tour, :review] %>
-    <% end %>
+  <% end %>
+  <% if t == false %>
+  <%= link_to "レビューをする", [:new, @tour, :review] %>
   <% end %>
   <div class="review_body">
   <% if @review.present? %>
