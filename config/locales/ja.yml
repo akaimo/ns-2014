@@ -1,0 +1,38 @@
+ja:
+  activerecord:
+    models:
+      detail: ツアー詳細
+      member: 会員情報
+      reservation: 予約
+      review: コメント
+      tour_infomation: ツアー情報
+    attributes:
+      detail:
+        start: 開始日
+        finish: 終了日
+        price: 料金
+        limit: 最大人数
+        lowst: 最小人数
+      tour_infomation:
+        tourname: ツアータイトル
+        tourcontent: ツアーの内容
+        category: カテゴリー
+        subcategory: サブカテゴリー
+      reservation:
+        people: 人数
+        food: 食事
+      member:
+        login_id: ログインID
+        password: パスワード
+        password_confirmation: パスワードの確認
+        name: 名前
+        address: 住所
+        phone: 電話番号
+        email: メールアドレス
+      review:
+        title: タイトル
+        content: 本文
+        member_id: ""
+    errors:
+      messages:
+        invalid_coment: "既にレヴュー済みです。以前のレビューを編集してください。"

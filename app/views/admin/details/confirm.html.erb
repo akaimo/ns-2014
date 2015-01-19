@@ -1,0 +1,42 @@
+<% @page_title = "ツアー詳細の確認" %>
+<h2><%= @page_title %></h2>
+
+<%= form_for [:admin, @tour, @detail] do |form| %>
+<table class="attr">
+  <tr>
+    <th>ツアータイトル</th>
+    <td><%= @tour.tourname %></td>
+  </tr>
+  <tr>
+    <th>ツアー内容</th>
+    <td><%= simple_format(@tour.tourcontent) %></td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= @tour.category %>/<%= @tour.subcategory %></td>
+  </tr>
+  <tr>
+    <th>開始日</th>
+    <td><%= form.hidden_field :start %><%= @detail.start.strftime('%Y年%m月%d日') %></td>
+  </tr>
+  <tr>
+    <th>終了日</th>
+    <td><%= form.hidden_field :finish %><%= @detail.finish.strftime('%Y年%m月%d日') %></td>
+  </tr>
+  <tr>
+    <th>料金</th>
+    <td><%= form.hidden_field :price %><%= @detail.price %></td>
+  </tr>
+  <tr>
+    <th>最大人数</th>
+    <td><%= form.hidden_field :limit %><%= @detail.limit %></td>
+  </tr>
+  <tr>
+    <th>最低人数</th>
+    <td><%= form.hidden_field :lowst %><%= @detail.lowst %></td>
+  </tr>
+</table>
+<p><%= link_to "ツアー詳細を変更する", :new_admin_tour_infomation_detail %></p>
+
+<%= form.submit "登録する" %>
+<% end %>

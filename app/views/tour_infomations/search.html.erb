@@ -1,0 +1,14 @@
+<% @page_title = "検索結果" %>
+<h2><%= @page_title %></h2>
+<table class="atr">
+<tr>
+  <th>カテゴリ</th>
+  <th>ツアータイトル</th>
+</tr>
+<% @tour.each do |tour| %>
+<tr>
+  <td><%= tour.category %>/<%= tour.subcategory %></td>
+  <td><%= link_to simple_format(tour.tourname), tour %></td>
+</tr>
+<% end %>
+</table>

@@ -1,0 +1,14 @@
+<% @page_title = "アカウント情報の変更" %>
+<h2><%= @page_title %></h2>
+
+<%= render "shared/errors", obj: @member %>
+
+<% if session[:reservation] %>
+<%= link_to "予約確認に戻る", :controller => "reservations", :action => "new", method: "post" %>
+<% else %>
+<p><%= link_to "マイアカウントに戻る", @member %></p>
+<% end %>
+<%= form_for @member do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

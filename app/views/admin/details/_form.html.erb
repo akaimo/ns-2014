@@ -1,0 +1,34 @@
+<table class="attr">
+  <tr>
+    <th>ツアータイトル</th>
+    <td><%= @tour.tourname %></td>
+  </tr>
+  <tr>
+    <th>ツアー内容</th>
+    <td><%= simple_format(@tour.tourcontent) %></td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th>
+    <td><%= @tour.category %>/<%= @tour.subcategory %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :start %></th>
+    <td><%= form.date_select :start, start_year: Time.now.year, end_year: 2020, use_month_numbers: true %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :finish %></th>
+    <td><%= form.date_select :finish, start_year: Time.now.year, end_year: 2020, use_month_numbers: true %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :price %></th>
+    <td><%= form.text_field :price, size: 20 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :limit %></th>
+    <td><%= form.text_field :limit, size: 20, size: 2, maxlength: 2 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :lowst %></th>
+    <td><%= form.text_field :lowst, size: 20, size: 2, maxlength: 2 %></td>
+  </tr>
+</table>

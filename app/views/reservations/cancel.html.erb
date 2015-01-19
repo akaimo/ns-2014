@@ -1,0 +1,5 @@
+<% @page_title = "キャンセル申請の取り消し" %>
+<h2><%= @page_title %></h2>
+
+<p>キャンセル申請は即時取り消されます。</p>
+<%= button_to "キャンセル申請の取り消し", member_reservation_path(@current_member, @reservation), method: :put, confirm: "キャンセル申請を取り消してよろしいですか？" %>

@@ -1,0 +1,24 @@
+<table class="attr">
+  <tr>
+    <th><%= form.label :tourname %></th>
+    <td><%= form.text_field :tourname, size: 68 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :tourcontent %></th>
+    <td><%= form.text_area :tourcontent, cols: 58, rows: 4 %></td>
+  </tr>
+  <tr>
+    <th><%= form.label :category %></th>
+    <td>
+    <%= form.radio_button :category, "空"%>空 <%= form.radio_button :category, "海"%>海 <%= form.radio_button :category, "山"%>山 <%= form.radio_button :category, "乗り物"%>乗り物 <%= form.radio_button :category, "観光"%>観光 </td>
+  </tr>
+  <tr>
+    <th><%= form.label :subcategory %></th>
+    <td id="tr1"><%= form.radio_button :subcategory, "パラグライダー", {:class => "tri1"} %>パラグライダー <%= form.radio_button :subcategory, "モーターパラグライダー", {:class => "tri1"} %>モーターパラグライダー <%= form.radio_button :subcategory, "ヘリコプター遊園", {:class => "tri1"} %>ヘリコプター遊園</td>
+    <td id="tr2"><%= form.radio_button :subcategory, "フライボード", {:class => "tri2"} %>フライボード <%= form.radio_button :subcategory, "カヌー", {:class => "tri2"} %>カヌー <%= form.radio_button :subcategory, "サーフィン", {:class => "tri2"} %>サーフィン<%= form.radio_button :subcategory, "ダイビング", {:class => "tri2"} %>ダイビング <%= form.radio_button :subcategory, "水上バイク", {:class => "tri2"} %>水上バイク <%= form.radio_button :subcategory, "ホエールウォッチング", {:class => "tri2"} %>ホエールウォッチング</td>
+    <td id="tr3"><%= form.radio_button :subcategory, "キャニオニング", {:class => "tri3"} %>キャニオニング <%= form.radio_button :subcategory, "洞窟探検", {:class => "tri3"} %>洞窟探検 <%= form.radio_button :subcategory, "登山", {:class => "tri3"} %>登山 <%= form.radio_button :subcategory, "ロッククライミング", {:class => "tri3"} %>ロッククライミング</td>
+    <td id="tr4"><%= form.radio_button :subcategory, "バイキング", {:class => "tri4"} %>バイキング <%= form.radio_button :subcategory, "バギー", {:class => "tri4"} %>バギー <%= form.radio_button :subcategory, "マウンテンバイク", {:class => "tri4"} %>マウンテンバイク <%= form.radio_button :subcategory, "セグウェイ", {:class => "tri4"} %>セグウェイ</td>
+    <td id="tr5"><%= form.radio_button :subcategory, "バスツアー", {:class => "tri5"} %>バスツアー</td>
+  </tr>
+</table>
+

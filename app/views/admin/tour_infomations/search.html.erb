@@ -1,0 +1,18 @@
+<% @page_title = "検索結果" %>
+<h2><%= @page_title %></h2>
+<P><%= link_to "ツアーの新規登録", :new_admin_tour_infomation %></P>
+
+
+<table class="attr">
+  <tr>
+    <th>カテゴリ</th>
+    <th>ツアータイトル</th>
+  </tr>
+  <% @tour.each do |tour| %>
+  <tr>
+    <td><%= tour.category %><br><%= tour.subcategory %></td>
+    <td><%= link_to simple_format(tour.tourname), [:admin, tour] %></td>
+    <td><%= link_to "編集", [:edit, :admin, tour] %><br><%= link_to "削除", [:admin, tour], method: :delete, confirm: "本当に削除しますか？" %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,0 +1,5 @@
+<% @page_title = "ツアーのキャンセル申請" %>
+<h2><%= @page_title %></h2>
+
+<p>承認されるまではキャンセルされませんのでご注意ください。</p>
+<%= button_to "キャンセル申請", member_reservation_path(@current_member, @reservation), method: :put, confirm: "キャンセル申請をしてよろしいですか？" %>

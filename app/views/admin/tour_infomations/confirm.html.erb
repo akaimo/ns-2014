@@ -1,0 +1,26 @@
+<% @page_title = "ツアー内容の確認" %>
+<h2><%= @page_title %></h2>
+
+<%= form_for [:admin, @tour] do |form| %>
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <td><%= form.hidden_field :tourname %><%= @tour.tourname %></td>
+  </tr>
+  <tr>
+    <th>ツアー内容</th>
+    <td><%= form.hidden_field :tourcontent %><%= @tour.tourcontent %></td>
+  </tr>
+  <tr>
+    <th>カテゴリ</th>
+    <td><%= form.hidden_field :category %><%= @tour.category %></td>
+  </tr>
+  <tr>
+    <th>サブカテゴリ</th>
+    <td><%= form.hidden_field :subcategory %><%= @tour.subcategory %></td>
+  </tr>
+</table>
+<p><%= link_to "ツアー内容を変更する", :new_admin_tour_infomation %></p>
+
+<%= form.submit "登録する" %>
+<% end %>

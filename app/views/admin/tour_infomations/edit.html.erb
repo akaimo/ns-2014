@@ -1,0 +1,9 @@
+<% @page_title = "ツアーの編集" %>
+<h2><%= @page_title %></h2>
+
+<%= render "shared/errors", obj: @tour %>
+
+<%= form_for [:admin, @tour] do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

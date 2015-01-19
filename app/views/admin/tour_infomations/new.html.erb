@@ -1,0 +1,9 @@
+<% @page_title = "ツアーの新規登録" %>
+<h2><%= @page_title %></h2>
+
+<%= render "shared/errors", obj: @tour %>
+
+<%= form_for @tour, :url => {:action => 'new'}, method: "get" do |form| %>
+<%= render "form", form: form %>
+<p><%= form.submit %></p>
+<% end %>

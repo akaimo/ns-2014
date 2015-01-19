@@ -1,0 +1,39 @@
+<% @page_title = "予約の登録" %>
+<h2><%= @page_title %></h2>
+
+<%= render "shared/errors", obj: @reservation %>
+
+<%= form_tag({ :controller => 'reservations', :action => 'new' }, :method => :get ) do %>
+<table class="attr">
+<%= hidden_field 'detail', 'id' %>
+  <tr>
+    <th>ツアー名</th>
+    <td><%= simple_format(@tour.tourname) %></td>
+  </tr>
+  <tr>
+    <th>日付</th>
+    <td><%= @detail.start.strftime('%Y年%m月%d日') %> から <%= @detail.finish.strftime('%m月%d日') %></td>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <td><%= simple_format(@tour.tourcontent) %></td>
+  </tr>
+  <tr>
+    <th>食事</th>
+    <td>
+      <%= radio_button 'reservation', 'food', '日本食', {:checked => true} %>日本食
+      <%= radio_button 'reservation', 'food', '中華', {}  %>中華
+      <%= radio_button 'reservation', 'food', 'イタリアン', {} %>イタリアン
+    </td>
+  </tr>
+  <tr>
+    <th>予約可能人数</th>
+    <td><%= @c %>人</td>
+  </tr>
+  <tr>
+    <th>人数</th>
+    <td><%= text_field 'reservation', 'people', size: 2, maxlength: 2 %></td>
+  </tr>
+</table>
+<%= submit_tag "確認" %>
+<% end %>

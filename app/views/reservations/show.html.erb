@@ -1,0 +1,34 @@
+<% @page_title = "ツアーの詳細" %>
+<h2><%= @page_title %></h2>
+
+<table class="attr">
+  <tr>
+    <th>ツアー名</th>
+    <td><%= simple_format(@tour[0].tourname) %></td>
+  </tr>
+  <tr>
+    <th>ツアーの内容</th>
+    <td><%= simple_format(@tour[0].tourcontent) %></td>
+  </tr>
+  <tr>
+    <th>日程</th>
+    <td><%= @detail[0].start.strftime('%Y年%m月%d日')  %> ~ <%= @detail[0].finish.strftime('%m月%d日') %></td>
+  </tr>
+  <tr>
+    <th>予約人数</th>
+    <td><%= @reservation.people %></td>
+  </tr>
+    <tr>
+    <th>食事</th>
+    <td><%= @reservation.food %></td>
+  </tr>
+  <tr>
+    <th>合計金額</th>
+    <td><%= @detail[0].price.to_i * @reservation.people.to_i %>円</td>
+  </tr>
+</table>
+<% if @reservation.canceld == nil %>
+<p><%= link_to "ツアーのキャンセル申請をする", [:edit, @current_member, @reservation] %></p>
+<% else %>
+<p><%= link_to "キャンセル申請を取り消す", [:edit, @current_member, @reservation] %></p>
+<% end %>

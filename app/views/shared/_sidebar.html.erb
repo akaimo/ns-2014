@@ -1,0 +1,33 @@
+<% if controller.kind_of?(Admin::Base) %>
+<div id="search">
+<%= form_tag :search_admin_tour_infomations, method: :get do %>
+<p>〜キーワード検索〜<br><%= text_field_tag "q", params[:q], placeholder: "検索ワードを入力"  %><%= submit_tag "検索" %></p>
+<% end %>
+</div>
+<div id="category">
+  <p>〜カテゴリ一覧〜</p>
+  <P>
+  <%= link_to "空", category_admin_tour_infomations_path(:category => "空") %><br>
+  <%= link_to "海", category_admin_tour_infomations_path(:category => "海") %><br>
+  <%= link_to "山", category_admin_tour_infomations_path(:category => "山") %><br>
+  <%= link_to "乗り物", category_admin_tour_infomations_path(:category => "乗り物") %><br>
+  <%= link_to "観光", category_admin_tour_infomations_path(:category => "観光") %>
+  </p>
+</div>
+<% else %>
+<div id="search">
+<%= form_tag :search_tour_infomations, method: :get do %>
+<p>〜キーワード検索〜<br><%= text_field_tag "q", params[:q], placeholder: "検索ワードを入力" %><%= submit_tag "検索" %></p>
+<% end %>
+</div>
+<div id="category">
+  <p>〜カテゴリ一覧〜</p>
+  <P>
+  <%= link_to "空", category_tour_infomations_path(:category => "空") %><br>
+  <%= link_to "海", category_tour_infomations_path(:category => "海") %><br>
+  <%= link_to "山", category_tour_infomations_path(:category => "山") %><br>
+  <%= link_to "乗り物", category_tour_infomations_path(:category => "乗り物") %><br>
+  <%= link_to "観光", category_tour_infomations_path(:category => "観光") %>
+  </p>
+</div>
+<% end %>

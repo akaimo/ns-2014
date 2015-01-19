@@ -1,0 +1,113 @@
+<% @page_title = @tour.tourname %>
+<h2><%= simple_format(@page_title) %></h2>
+
+<table class="attr">
+<tr>
+  <th>ツアーの内容</th>
+  <td><%= simple_format(@tour.tourcontent) %></td>
+</tr>
+</table>
+
+<% option = [] %>
+<% count = 0 %>
+<% @details.each do |detail| %>
+<% if detail.start >= Date.today %>
+  <% option.push([detail.start.strftime('%Y年%m月%d日') + " ~ " + detail.finish.strftime('%m月%d日'), count, {class: count}]) %>
+  <% count = count + 1 %>
+<% end %>
+<% end %>
+<%= select :detail, :date, option, :prompt => "日付を選択" %>
+
+<% count = 0 %>
+<% @details.each do |detail| %>
+<% if detail.start >= Date.today %>
+<% c = 0 %>
+<% y = false %>
+<% if @reservation.present? %>
+  <% @reservation.each do |reservation| %>
+    <% if detail.id == reservation.detail_id %>
+      <% c = c + reservation.people.to_i %>
+    <% end %>
+    <% if @current_member.present? %>
+      <% if reservation.member_id == @current_member.id && reservation.detail_id == detail.id %>
+        <% y = true %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>
+<div id=<%= count %> class="detail">
+<h3><%= detail.start.strftime('%Y年%m月%d日') %> ~ <%= detail.finish.strftime('%m月%d日') %>のツアー</h3>
+<table class="attr">
+<tr>
+  <th>金額</th>
+  <td><%= detail.price %>円</td>
+</tr>
+<tr>
+  <th>定員人数</th>
+  <td><%= detail.limit %>人</td>
+</tr>
+<tr>
+  <th>開催最低人数</th>
+  <td><%= detail.lowst %>人</td>
+</tr>
+<tr>
+  <th>残り人数</th>
+  <td><%= detail.limit.to_i - c %>人</td>
+</tr>
+</table>
+<% if y == true %>
+  <p>このツアーは予約済みです。</p>
+<% elsif detail.limit.to_i - c == 0 %>
+  <P>予約は終了しました。</P>
+<% else %>
+  <p><%= link_to "予約する", new_reservation_path(:id => detail.id) %></p>
+<% end %>
+</div>
+<% count = count + 1 %>
+<% end %>
+<% end %>
+
+<div class="review">
+  <h2>レビュー</h2>
+
+  <% @review.each do |review| %>
+    <% if @current_member %>
+      <% if review.member_id == @current_member.id %>
+        <% t = 1 %>
+      <% else %>
+        <% t = 0 %>
+      <% end %>
+    <% else %>
+      <% t = 0 %>
+    <% end %>
+    <% if t == 1 %>
+    <%= link_to "レビューを編集する", [:edit, @tour, review] %>
+    <% else %>
+    <%= link_to "レビューをする", [:new, @tour, :review] %>
+    <% end %>
+  <% end %>
+  <div class="review_body">
+  <% if @review.present? %>
+  <% c = 1 %>
+  <% @review.each do |review| %>
+    <div class="body">
+      <div class="info">
+      <% if @current_member %>
+      <% if review.member_id == @current_member.id %>
+        <p><%= c %>.&nbsp;<%= review.title %>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.created_at.strftime("%Y/%m/%d %H:%M") %> <%= link_to "編集", [:edit, @tour, review] %> | <%= link_to "削除", [@tour, review], method: :delete, confirm: "本当に削除しますか？" %></p>
+      <% else %>
+        <p><%= c %>.&nbsp;<%= review.title %>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+      <% end %>
+      <% else %>
+        <p><%= c %>.&nbsp;<%= review.title %>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.created_at.strftime("%Y/%m/%d %H:%M") %></p>
+      <% end %>
+      </div>
+      <div class="comments">
+      <P><%= simple_format(review.content) %></P>
+      </div>
+    </div>
+    <% c = c +1 %>
+  <% end %>
+  <% end %>
+  </div>
+</div>

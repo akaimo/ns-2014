@@ -1,0 +1,193 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ *= require jquery-ui/core
+ *= require jquery-ui/tabs
+ */
+
+
+ div#container {
+  max-width: 900px;
+  min-width: 850px;
+  margin: 0 auto;
+  padding: 5px 20px 5px
+}
+
+div#header {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  padding: 10px 20px;
+  background-color: #cee;
+}
+
+div#header div#title {
+  float: left;
+  width: auto;
+  height: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+div#header div#login {
+  padding-top: 15px;
+  float: right;
+  width: auto;
+  height: auto;
+}
+
+div#content {
+  float: left;
+  width: auto;
+  height: auto;
+  padding: 0px 10px 20px 20px;
+}
+
+div#sidebar {
+  float: right;
+  width: auto;
+  height: auto;
+  margin: 20px 0px;
+  padding: 20px;
+  background-color: #499;
+}
+
+div#footer {
+  clear:both;
+  border-top: 1px solid #000000;
+  margin-top: 10px;
+  text-align: right;
+}
+
+/*ここから下を編集*/
+
+
+
+div#content table.attr {
+  max-width: 620px;
+}
+
+div#content table.attr th {
+  text-align: right;
+  width: 115px;
+  background-color: #499;
+  padding: 4px;
+}
+
+div#content table.attr td {
+  background-color: #cee;
+  padding: 4px;
+}
+
+div#content table.atr {
+  max-width: 620px;
+}
+
+div#content table.atr th {
+  text-align: center;
+  background-color: #499;
+  padding: 4px;
+}
+
+div#content table.atr td {
+  background-color: #cee;
+  padding: 4px;
+}
+
+
+div#content div.review_body {
+  margin: 10px 10px 0px;
+  padding: 10px;
+}
+
+div#content div.review div.body {
+  margin: 10px 0px;
+  padding: 10px;
+  border: 1px solid #000000;
+}
+
+div#content div.review div.body div.info p {
+  margin: 0px;
+}
+
+div#content div.review div.body div.name p {
+  margin: 0px;
+}
+
+div#content div.review div.body div.vote p {
+  margin: 0px;
+}
+
+
+
+#tabs {
+  width:500px;
+  margin-top: 20px;
+}
+
+#tabs p {
+  margin: 2px 0px;
+}
+
+#tabs h3 {
+  color: #449;
+}
+
+#tab li a:hover, #tab li.ui-tabs-active a {
+  background-color:#768AE9;
+  color: #fff;
+}
+
+.treemenu {
+  width: 256px;
+}
+/*階層1*/
+.treemenu .lv1btn{
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.treemenu .lv1body {
+  display: none;
+  padding: 0 10px 5px 10px;
+  width: 400px;
+}
+.treemenu .lv1body a {
+  line-height: 2.0;
+}
+/*階層2*/
+.treemenu .lv1body .lv2btn {
+  cursor: pointer;
+  padding: 5px 10px 5px 0;
+}
+.treemenu .lv1body .lv2body {
+  display: none;
+  padding: 0 10px 5px 10px;
+}
+.treemenu .lv1body .lv2body a {
+  line-height: 2.0;
+}
+/*階層3*/
+.treemenu .lv1body .lv3btn {
+  cursor: pointer;
+  padding: 5px 10px 5px 0;
+}
+.treemenu .lv1body .lv2body .lv3body {
+  display: none;
+  padding: 0 10px 5px 10px;
+}
+.treemenu .lv1body .lv2body .lv3body a {
+  line-height: 2.0;
+}
+
+.invisible{
+display: none;
+}

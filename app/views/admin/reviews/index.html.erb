@@ -1,0 +1,27 @@
+<% @page_title = "レビュー管理" %>
+<h2><%= @page_title %></h2>
+
+<% if @review.present? %>
+<table class="atr">
+  <tr>
+    <th>レビューID</th>
+    <th>会員番号</th>
+    <th>ツアー番号</th>
+    <th>タイトル</th>
+    <th>内容</th>
+  </tr>
+  <% @review.each do |review| %>
+  <tr>
+    <td><%= review.id %></td>
+    <td><%= review.member_id %></td>
+    <td><%= review.tour_infomation_id %></td>
+    <td><%= review.title %></td>
+    <td><%= simple_format(review.content) %></td>
+    <td><%= link_to "削除", [:admin, review], method: :delete, confirm: "レビューをキャンセルしますか？" %></td>
+  </tr>
+  <% end %>
+</table>
+
+<% else %>
+<p>レビューは存在しません。</p>
+<% end %>

@@ -1,0 +1,67 @@
+<% @page_title = @tour.tourname %>
+<h2><%= simple_format(@page_title) %></h2>
+
+<table class="attr">
+<tr>
+  <th>ツアーの内容</th>
+  <td><%= simple_format(@tour.tourcontent) %></td>
+</tr>
+</table>
+
+<p><%= link_to "ツアー詳細の新規作成", [:new, :admin, @tour, :detail] %></p>
+
+<% @details.each do |detail| %>
+<% c = 0 %>
+<% if @reservation.present? %>
+  <% @reservation.each do |reservation| %>
+    <% if detail.id == reservation.detail_id %>
+      <% c = c + reservation.people.to_i %>
+    <% end %>
+  <% end %>
+<% end %>
+<h3><%= detail.start.strftime('%Y年%m月%d日') %> ~ <%= detail.finish.strftime('%m月%d日') %>のツアー</h3>
+<p><%= link_to "編集", [:edit, :admin, @tour, detail] %> | <%= link_to "複製", copy_admin_tour_infomation_detail_path(tour_infomation_id: @tour, id: detail) %> | <%= link_to "削除", [:admin, @tour, detail], method: :delete, confirm: "本当に削除しますか？" %></p>
+<table class="attr">
+<tr>
+  <th>金額</th>
+  <td><%= detail.price %>円</td>
+</tr>
+<tr>
+  <th>定員人数</th>
+  <td><%= detail.limit %>人</td>
+</tr>
+<tr>
+  <th>開催最低人数</th>
+  <td><%= detail.lowst %>人</td>
+</tr>
+<tr>
+  <th>残り人数</th>
+  <td><%= detail.limit.to_i - c %>人</td>
+</tr>
+</table>
+<% end %>
+
+
+<% if @review.present? %>
+<div class="review">
+  <h2>レビュー</h2>
+  <div class="review_body">
+  <% if @review.present? %>
+  <% c = 1 %>
+  <% @review.each do |review| %>
+    <div class="body">
+      <div class="info">
+        <p><%= c %>.&nbsp;<%= review.title %>&nbsp;&nbsp;&nbsp;&nbsp;<%= review.created_at.strftime("%Y/%m/%d %H:%M") %> <%= link_to "削除", [:admin, review], method: :delete, confirm: "レビューを削除しますか？" %></p>
+      </div>
+      <div class="comments">
+      <P><%= simple_format(review.content) %></P>
+      </div>
+    </div>
+    <% c = c +1 %>
+  <% end %>
+  <% end %>
+  </div>
+</div>
+<% else %>
+<p>レビューはありません。</p>
+<% end %>

@@ -1,0 +1,60 @@
+<% @page_title = "予約内容の確認" %>
+<h2><%= @page_title %></h2>
+
+<%= form_tag({ :controller => 'reservations', :action => 'create' }, :method => :post ) do %>
+<h3>ツアー内容の確認</h3>
+<table class="attr">
+<%= hidden_field 'detail', 'id' %>
+  <tr>
+    <th>ツアー名</th>
+    <td><%= simple_format(@tour.tourname) %></td>
+  </tr>
+  <tr>
+    <th>日付</th>
+    <td><%= @detail.start %> から <%= @detail.finish %></td>
+  </tr>
+  <tr>
+    <th>内容</th>
+    <td><%= simple_format(@tour.tourcontent) %></td>
+  </tr>
+  <tr>
+    <th>食事</th>
+    <td><%= hidden_field 'reservation', 'food' %><%= @reservation.food %></td>
+  </tr>
+  <tr>
+    <th>人数</th>
+    <td><%= hidden_field 'reservation', 'people' %><%= @reservation.people %>人</td>
+  </tr>
+  <tr>
+    <th>合計金額</th>
+    <td><%= @detail.price.to_i * @reservation.people.to_i %>円</td>
+  </tr>
+</table>
+<p><%= link_to "ツアー内容を変更する", tour_infomation_path(@tour) %></p>
+
+<h3>ユーザー情報の確認</h3>
+<table class="attr">
+<tr>
+  <th>ID</th>
+  <td><%= @member.login_id %></td>
+</tr>
+<tr>
+  <th>名前</th>
+  <td><%= @member.name %></td>
+</tr>
+<tr>
+  <th>住所</th>
+  <td><%= @member.address %></td>
+</tr>
+<tr>
+  <th>電話番号</th>
+  <td><%= @member.phone %></td>
+</tr>
+<tr>
+  <th>メールアドレス</th>
+  <td><%= @member.email %></td>
+</tr>
+</table>
+<p><%= link_to "ユーザー情報を変更する", edit_member_path(@member) %></p>
+<%= submit_tag "予約する" %>
+<% end %>

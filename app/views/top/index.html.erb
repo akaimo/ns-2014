@@ -1,0 +1,314 @@
+<% @page_title = "TOP" %>
+
+<div id="tabs">
+    <ul id="tab">
+        <li class="present"><a href="#tour1" _fcksavedurl="#tour1">空</a></li>
+        <li><a href="#tour2" _fcksavedurl="#tour2">海</a></li>
+        <li><a href="#tour3" _fcksavedurl="#tour3">山</a></li>
+        <li><a href="#tour4" _fcksavedurl="#tour4">乗り物</a></li>
+        <li><a href="#tour5" _fcksavedurl="#tour5">観光</a></li>
+    </ul>
+
+    <div id="tour1">
+        <h3>空のツアー</h3>
+        <div class="treemenu">
+            <p class="lv1btn">パラグライダー</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @sora.each do |sora| %>
+              <% if sora.subcategory == "パラグライダー" %>
+                <p><%= image_tag("guide2.png") %><%= link_to sora.tourname, sora %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">モーターパラグライダー</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @sora.each do |sora| %>
+              <% if sora.subcategory == "モーターパラグライダー" %>
+                <p><%= image_tag("guide2.png") %><%= link_to sora.tourname, sora %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">ヘリコプター遊園</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @sora.each do |sora| %>
+              <% if sora.subcategory == "ヘリコプター遊園" %>
+                <p><%= image_tag("guide2.png") %><%= link_to sora.tourname, sora %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div id="tour2">
+        <h3>海のツアー</h3>
+        <div class="treemenu">
+            <p class="lv1btn">フライボード</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "フライボード" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">カヌー</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "カヌー" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">サーフィン</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "サーフィン" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">スキューバダイビング</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "ダイビング" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">水上バイク</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "水上バイク" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">ホエールウォッチング</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @umi.each do |umi| %>
+              <% if umi.subcategory == "ホエールウォッチング" %>
+                <p><%= image_tag("guide2.png") %><%= link_to umi.tourname, umi %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div id="tour3">
+        <h3>山のツアー</h3>
+        <div class="treemenu">
+            <p class="lv1btn">キャニオニング</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @yama.each do |yama| %>
+              <% if yama.subcategory == "キャニオニング" %>
+                <p><%= image_tag("guide2.png") %><%= link_to yama.tourname, yama %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">洞窟探検</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @yama.each do |yama| %>
+              <% if yama.subcategory == "洞窟探検" %>
+                <p><%= image_tag("guide2.png") %><%= link_to yama.tourname, yama %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">登山</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @yama.each do |yama| %>
+              <% if yama.subcategory == "登山" %>
+                <p><%= image_tag("guide2.png") %><%= link_to yama.tourname, yama %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">ロッククライミング</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @yama.each do |yama| %>
+              <% if yama.subcategory == "ロッククライミング" %>
+                <p><%= image_tag("guide2.png") %><%= link_to yama.tourname, yama %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">ハイキング</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @yama.each do |yama| %>
+              <% if yama.subcategory == "ハイキング" %>
+                <p><%= image_tag("guide2.png") %><%= link_to yama.tourname, yama %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div id="tour4">
+        <h3>乗り物のツアー</h3>
+        <div class="treemenu">
+            <p class="lv1btn">バギー</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @norimono.each do |norimono| %>
+              <% if norimono.subcategory == "バギー" %>
+                <p><%= image_tag("guide2.png") %><%= link_to norimono.tourname, norimono %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">マウンテンバイク</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @norimono.each do |norimono| %>
+              <% if norimono.subcategory == "マウンテンバイク" %>
+                <p><%= image_tag("guide2.png") %><%= link_to norimono.tourname, norimono %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+
+        <div class="treemenu">
+            <p class="lv1btn">セグウェイ</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @norimono.each do |norimono| %>
+              <% if norimono.subcategory == "セグウェイ" %>
+                <p><%= image_tag("guide2.png") %><%= link_to norimono.tourname, norimono %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div id="tour5">
+        <h3>観光のツアー</h3>
+        <div class="treemenu">
+            <p class="lv1btn">バスツアー</p>
+            <div class="lv1body">
+            <% c = 0 %>
+            <% @kankou.each do |kankou| %>
+              <% if kankou.subcategory == "バスツアー" %>
+                <p><%= image_tag("guide2.png") %><%= link_to kankou.tourname, kankou %></p>
+                <% c = c + 1 %>
+              <% end %>
+            <% end %>
+            <% if c == 0 %>
+              <p><%= image_tag("guide2.png") %>ツアーは存在しません。</p>
+            <% end %>
+            </div>
+        </div>
+    </div>
+</div>
