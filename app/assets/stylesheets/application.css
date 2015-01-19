@@ -10,6 +10,8 @@
  *
  *= require_self
  *= require_tree .
+ *= require_jquery-ui.mini
+ *= require_jquery-ui.thema.mini
  */
 
 
