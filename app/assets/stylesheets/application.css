@@ -77,12 +77,12 @@ div#content table.attr {
 div#content table.attr th {
   text-align: right;
   width: 115px;
-  background-color: #499;
+  background-color: #00b2ee;
   padding: 4px;
 }
 
 div#content table.attr td {
-  background-color: #cee;
+  background-color: #8ddaf7;
   padding: 4px;
 }
 
@@ -92,25 +92,24 @@ div#content table.atr {
 
 div#content table.atr th {
   text-align: center;
-  background-color: #499;
+  background-color: #00b2ee;
   padding: 4px;
 }
 
 div#content table.atr td {
-  background-color: #cee;
+  background-color: #8ddaf7;
   padding: 4px;
 }
 
 
 div#content div.review_body {
-  margin: 10px 10px 0px;
-  padding: 10px;
+  margin: 0px 20px;
 }
 
 div#content div.review div.body {
+  background-color: #8ddaf7;
   margin: 10px 0px;
   padding: 10px;
-  border: 1px solid #000000;
 }
 
 div#content div.review div.body div.info p {
@@ -125,7 +124,13 @@ div#content div.review div.body div.vote p {
   margin: 0px;
 }
 
+div#content div.review div.body div.comments p {
+  margin: 0px;
+}
 
+#accordion {
+  margin: 30px 0px 0px;
+}
 
 #tabs {
   width:500px;
