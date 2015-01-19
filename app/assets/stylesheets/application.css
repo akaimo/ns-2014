@@ -27,7 +27,7 @@ div#header {
   height: auto;
   overflow: hidden;
   padding: 10px 20px;
-  background-color: #cee;
+  background-color: #8ddaf7;
 }
 
 div#header div#title {
@@ -140,11 +140,6 @@ div#content div.review div.body div.vote p {
 
 #tabs h3 {
   color: #449;
-}
-
-#tab li a:hover, #tab li.ui-tabs-active a {
-  background-color:#768AE9;
-  color: #fff;
 }
 
 .treemenu {
