@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Member < ActiveRecord::Base
   include EmailAddressChecker
 
@@ -7,11 +9,11 @@ class Member < ActiveRecord::Base
   attr_accessor :password, :password_confirmation
   attr_accessible :name, :address, :phone, :email, :login_id, :administrator, :password, :password_confirmation
 
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :phone, :format=>{:with=>/^[0-9-]/, :message=>"は半角数値と「-」だけ入力できます。", :allow_blank=>true}, uniqueness: true, presence: true
+  validates :name, presence: true, :format=>{:without=>/[0-9!?-_"#$%&'()=|`<>^@+*{}~;:¥¥]/, :message=>"に数字と記号は入力できません。"}
+  validates :address, presence: true, :format=>{:without=>/[!?-_"#$%&'()=|`<>^@+*{}~;:¥¥]/, :message=>"に記号は入力できません。" }
+  validates :phone, :format=>{:with=>/[0-9]{10,11}/, :message=>"は半角数値だけ入力できます。", :allow_blank=>true}, :length=>{:minimum=> 10, :maximum=>11}, uniqueness: true, presence: true
   validates :email, presence: true, uniqueness: true
-  validates :login_id, presence: true, uniqueness: true
+  validates :login_id, presence: true, uniqueness: true, :format=>{:without=>/[!?-_"#$%&'()=|`<>^@+*{}~;:¥¥]/, :message=>"に記号は入力できません。" }
   validates :password, presence: { on: :create }, confirmation: { allow_blank: true }
   validate :check_email
 

@@ -1,3 +1,5 @@
+# coding: utf-8
+
 class Detail < ActiveRecord::Base
   belongs_to :tour_infomation
   has_many :reservations

@@ -10,6 +10,7 @@
 
 <p><%= link_to "ツアー詳細の新規作成", [:new, :admin, @tour, :detail] %></p>
 
+<div id="accordion">
 <% @details.each do |detail| %>
 <% c = 0 %>
 <% if @reservation.present? %>
@@ -20,7 +21,8 @@
   <% end %>
 <% end %>
 <h3><%= detail.start.strftime('%Y年%m月%d日') %> ~ <%= detail.finish.strftime('%m月%d日') %>のツアー</h3>
-<p><%= link_to "編集", [:edit, :admin, @tour, detail] %> | <%= link_to "複製", copy_admin_tour_infomation_detail_path(tour_infomation_id: @tour, id: detail) %> | <%= link_to "削除", [:admin, @tour, detail], method: :delete, confirm: "本当に削除しますか？" %></p>
+<div>
+<p class="admin_p"><%= link_to "編集", [:edit, :admin, @tour, detail] %> | <%= link_to "複製", copy_admin_tour_infomation_detail_path(tour_infomation_id: @tour, id: detail) %> | <%= link_to "削除", [:admin, @tour, detail], method: :delete, confirm: "本当に削除しますか？" %></p>
 <table class="attr">
 <tr>
   <th>金額</th>
@@ -39,7 +41,9 @@
   <td><%= detail.limit.to_i - c %>人</td>
 </tr>
 </table>
+</div>
 <% end %>
+</div>
 
 
 <% if @review.present? %>
